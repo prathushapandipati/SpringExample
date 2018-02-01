@@ -8,18 +8,26 @@ import javax.persistence.Id;
 @Entity
 public class Note {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private int id; 
-	
-	private String text;
-	
 	public Note() {
-		
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Note(String text) {
-		this.text=text;
+		this.text = text;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long Id;
+
+	private String text;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public String getText() {
@@ -29,7 +37,5 @@ public class Note {
 	public void setText(String text) {
 		this.text = text;
 	}
-		
-	
-	
+
 }

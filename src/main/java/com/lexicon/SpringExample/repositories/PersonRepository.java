@@ -6,8 +6,8 @@ import com.lexicon.SpringExample.models.Person;
 
 public interface PersonRepository {
    void persistPerson(Person person);
-   List<Person> getAllPersons();
-   void addNoteToPerson();
+   List<Person> getAllPerson();
+   void addNoteToPerson(Long id, String text);
    
 	
 	

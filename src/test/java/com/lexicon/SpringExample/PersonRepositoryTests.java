@@ -26,7 +26,7 @@ public class PersonRepositoryTests {
 	
 	@Test
 	public void testThatPersonIsPersisted() {
-		Person person = new Person(null, "Prathusha", "Pandipati");
+		Person person = new Person("Prathusha", "Pandipati");
 		personRepository.persistPerson(person);
 		Assert.assertNotNull(person.getId());
 		

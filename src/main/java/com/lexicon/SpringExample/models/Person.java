@@ -3,46 +3,41 @@ package com.lexicon.SpringExample.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Person {
+	
 
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	private String firstName;
-	private String lastName;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "PERSON_ID")	
-	private List<Note> notes = new ArrayList<Note>();
-	
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private Long Id;
+
 	public Person() {
-		
+		// TODO Auto-generated constructor stub
 	}
-	
-	public Person(Long id, String firstName, String lastName) {
-		super();
-		this.id = id;
+
+
+	public Person(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
+	private String firstName;
+	
+	private String lastName;
+	
+	@OneToMany(cascade = CascadeType.ALL , fetch=FetchType.EAGER)
+	@JoinColumn(name = "PERSON_ID")
+	private List<Note> notes = new ArrayList<Note>();
+
 	public Long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		Id = id;
 	}
 
 	public String getFirstName() {
@@ -69,6 +64,13 @@ public class Person {
 		this.notes = notes;
 	}
 	
+	
+	//Make person to an entity, with attribute firstName, lastName
+	//Make a reference to List of Note (oneToMany)
+	//Create Note entity with String attribute text
+	//Check h2console
+	//Research online for correct JPA annotations
+	  
 	
 	
 }
